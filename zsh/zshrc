@@ -1,0 +1,17 @@
+alias v="nvim"
+
+autoload -U colors && colors
+
+export PROMPT="%B%{$fg[blue]%}%~%b %{$reset_color%}"
+# export PROMPT="%d{red}"
+
+
+path=(
+	/bin
+	/usr/bin
+	/usr/local/bin
+	$HOME/.local/bin
+	$HOME/.config/composer/vendor/bin
+	./vendor/bin
+	$path
+)
