@@ -1,10 +1,12 @@
 alias v="nvim"
+alias h="hx"
 
 autoload -U colors && colors
 
 export PROMPT="%B%{$fg[blue]%}%~%b %{$reset_color%}"
 # export PROMPT="%d{red}"
 
+export EDITOR=nvim
 
 path=(
 	/bin

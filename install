@@ -8,6 +8,9 @@ ln -s $DOTFILES/kitty $HOME/.config/kitty
 rm -rf $HOME/.zshrc
 ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
 
+rm -rf $HOME/.config/lf
+ln -s $DOTFILES/lf $HOME/.config/lf
+
 rm -rf $HOME/.tmux.conf
 ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
@@ -25,3 +28,12 @@ rm -rf $HOME/.config/nvim/lua/user/keymaps.lua
 ln -s $DOTFILES/nvim/lua/user/plugins.lua $HOME/.config/nvim/lua/user/plugins.lua
 ln -s $DOTFILES/nvim/lua/user/options.lua $HOME/.config/nvim/lua/user/options.lua
 ln -s $DOTFILES/nvim/lua/user/keymaps.lua $HOME/.config/nvim/lua/user/keymaps.lua
+
+
+rm -rf $HOME/.config/helix
+ln -s $DOTFILES/helix $HOME/.config/helix
+
+# Language servers
+if ! command -v typescript-language-server &> /dev/null; then
+  npm install --global typescript typescript-language-server
+fi

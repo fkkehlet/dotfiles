@@ -33,7 +33,7 @@ vim.opt.splitright = true
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 
-vim.opt.clipboard = 'unnamedplus' -- use system clipboard
+-- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 
 vim.opt.confirm = true -- ask for confirmation instead of erroring
 
@@ -41,3 +41,13 @@ vim.opt.undofile = true -- persistent undo
 vim.opt.backup = true -- automatically save a backup file
 vim.opt.backupdir:remove('.') -- keep backups out of the current directory
 
+-- Set transparent background
+-- function ColorMyPencils(color)
+--     color = color or 'nord'
+--     vim.cmd.colorscheme(color)
+--
+--     vim.api.nvim_set_hl(0, 'Normal', { bg = 'none', })
+--     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none', })
+-- end
+--
+-- ColorMyPencils()

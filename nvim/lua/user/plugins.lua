@@ -4,7 +4,7 @@ local ensure_packer = function()
     if fn.empty(fn.glob(install_path)) > 0 then
         fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
         vim.cmd [[packadd packer.nvim]]
-        return true
+        return tnue
     end
     return false
 end
@@ -14,11 +14,11 @@ local packer_bootstrap = ensure_packer()
 require('packer').reset()
 require('packer').init({
     compile_path = vim.fn.stdpath('data')..'/site/plugin/packer_compiled.lua',
-    --display = {
+    -- display = {
     --    open_fn = function()
     --        return require('packer.util').float({ border='solid' })
     --    end,
-    --}
+    -- }
 })
 
 
@@ -56,8 +56,21 @@ use { -- LSP Configuration & Plugins
         'folke/neodev.nvim',
     },
 }
--- Enable the following language servers
--- Feel free to add/remove any LSPs that you want here. They will automatically be installed.
+
+-- Setup for PHP LSP
+use {
+    'gbprod/phpactor.nvim',
+    run = require('phpactor.handler.update'), -- To install/update phpactor when installing this plugin
+    requires = {
+        'nvim-lua/plenary.nvim', -- required to update phpactor
+        'neovim/nvim-lspconfig' -- required to automaticly register lsp server
+    },
+    config = function ()
+        require('phpactor').setup()
+    end,
+}
+
+-- Enable the following language servers which will automatically be installed
 -- Add any additional override configuration in the following tables. They will be passed to
 -- the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
@@ -188,6 +201,12 @@ cmp.setup {
   },
 }
 
+use 'hrsh7th/cmp-buffer'
+use 'hrsh7th/cmp-path'
+use 'hrsh7th/cmp-nvim-lua'
+
+-- use snippets
+
 
 
 -- Git related plugins
@@ -208,7 +227,6 @@ use 'tpope/vim-surround' -- cs'" to change ' to ".
 -- use 'tpope/vim-unimpaired' -- Handy bracket mappings, like [b and ]b
 -- use 'tpope/vim-eunuch' -- Useful commands like :Rename and :SudoWrite
 -- use 'tpope/vim-sleuth' -- Indent autodetection with editorconfig support
--- use 'tpope/vim-repeat' -- Allow plugins to enable repeating of commands
 -- use 'sheerun/vim-polyglot' -- More languages
 -- use 'christoomey/vim-tmux-navigator' -- Navigate seamlessly between vim windows and tmux panes
 -- use 'farmergreg/vim-lastplace' -- Jump to the last location when opening a file
@@ -218,7 +236,7 @@ use 'jessarcher/vim-heritage' -- Automatically create parent dirs when saving
 use({ -- Automatically fix indentation when pasting code
     'sickill/vim-pasta',
     config = function ()
-    vim.g.pasta_disabled_filetypes = { 'fugitive' }
+        vim.g.pasta_disabled_filetypes = { 'fugitive' }
     end,
 })
 
@@ -247,14 +265,25 @@ use({ -- Close buffers without closing split windows
     end,
 })
 
-use({ -- Split arrays and methods onto multiple lines with gS and rejoin them using gJ
+
+
+use { -- Split arrays and methods onto multiple lines with gS and rejoin them using gJ
     'AndrewRadev/splitjoin.vim',
     config = function ()
         vim.g.splitjoin_html_attributes_bracket_on_new_line = 1
         vim.g.splitjoin_trailing_comma = 1
         vim.g.splitjoin_php_method_chain_full = 1
     end,
+}
+
+
+
+use({ -- Faster search with s and S
+    'ggandor/leap.nvim',
+    requires = 'tpope/vim-repeat', -- Allow plugins to enable repeating of commands
 })
+require('leap').add_default_mappings()
+
 
 
 use { -- Lualine status bar
@@ -269,6 +298,43 @@ require('lualine').setup {
         section_separators = '',
     },
 }
+
+use 'nvim-tree/nvim-tree.lua' -- File tree
+require("nvim-tree").setup({
+    disable_netrw = true,
+    hijack_netrw = true,
+    auto_close = true,
+    diagnostics = {
+        enable = true,
+    },
+    git = {
+        enable = true,
+        ignore = true,
+        timeout = 500,
+    },
+    view = {
+        width = 30,
+        mappings = {
+            custom_only = false,
+            list = {
+                { key = { "l", "<CR>", "o" }, action = "edit" },
+                -- { key = "h", action = "close_node" },
+                { key = "v", action = "vsplit" },
+            },
+        },
+    },
+    renderer = {
+        icons = {
+            show = {
+                file = false,
+                folder = true,
+                folder_arrow = false,
+                git = false,
+                modified = false,
+            },
+        },
+    },
+})
 
 use { -- Treesitter - highlight, edit, and navigate code
 	'nvim-treesitter/nvim-treesitter',
@@ -290,8 +356,8 @@ require('nvim-treesitter.configs').setup {
     incremental_selection = {
         enable = true,
         keymaps = {
-            init_selection = '<c-space>',
-            node_incremental = '<c-space>',
+            init_selection = '<c-a>',
+            node_incremental = '<c-a>',
             scope_incremental = '<c-s>',
             node_decremental = '<c-backspace>',
         },
