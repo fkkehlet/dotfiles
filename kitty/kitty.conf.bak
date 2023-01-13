@@ -1,10 +1,12 @@
 # Kitty config
 
+macos_option_as_alt yes
+
 font_family      MonoLisa Script Regular
 bold_font        MonoLisa Script Bold
 italic_font      MonoLisa Script Regular Italic
 bold_italic_font MonoLisa Script Bold Italic
-font_size 20
+font_size 18
 adjust_line_height 100%
 
 cursor_blink_interval 0
@@ -17,6 +19,6 @@ enable_audio_bell 0
 # active_border_color none
 
 # BEGIN_KITTY_THEME
-# One Dark
+# Nord
 include current-theme.conf
 # END_KITTY_THEME

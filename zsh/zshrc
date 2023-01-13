@@ -15,5 +15,6 @@ path=(
 	$HOME/.local/bin
 	$HOME/.config/composer/vendor/bin
 	./vendor/bin
+	$HOME/.emacs.d/bin
 	$path
 )

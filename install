@@ -21,13 +21,15 @@ ln -s $DOTFILES/scripts/t $HOME/.local/bin/t
 rm -rf $HOME/.config/nvim/init.lua
 ln -s $DOTFILES/nvim/init.lua $HOME/.config/nvim/init.lua
 
-mkdir -p $HOME/.config/nvim/lua/user
-rm -rf $HOME/.config/nvim/lua/user/plugins.lua
-rm -rf $HOME/.config/nvim/lua/user/options.lua
-rm -rf $HOME/.config/nvim/lua/user/keymaps.lua
-ln -s $DOTFILES/nvim/lua/user/plugins.lua $HOME/.config/nvim/lua/user/plugins.lua
-ln -s $DOTFILES/nvim/lua/user/options.lua $HOME/.config/nvim/lua/user/options.lua
-ln -s $DOTFILES/nvim/lua/user/keymaps.lua $HOME/.config/nvim/lua/user/keymaps.lua
+# mkdir -p $HOME/.config/nvim/lua/user
+# rm -rf $HOME/.config/nvim/lua/user/plugins.lua
+# rm -rf $HOME/.config/nvim/lua/user/options.lua
+# rm -rf $HOME/.config/nvim/lua/user/keymaps.lua
+rm -rf $HOME/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config/nvim
+# ln -s $DOTFILES/nvim/lua/user/plugins.lua $HOME/.config/nvim/lua/user/plugins.lua
+# ln -s $DOTFILES/nvim/lua/user/options.lua $HOME/.config/nvim/lua/user/options.lua
+# ln -s $DOTFILES/nvim/lua/user/keymaps.lua $HOME/.config/nvim/lua/user/keymaps.lua
 
 
 rm -rf $HOME/.config/helix

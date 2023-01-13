@@ -7,6 +7,13 @@ vim.opt.softtabstop = 4
 vim.opt.smartindent = true
 
 vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+vim.opt.undofile = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -30,24 +37,7 @@ vim.opt.fillchars:append({ eob = ' ' }) -- remove the ~ from end of buffer
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.scrolloff = 0
-vim.opt.sidescrolloff = 0
-
--- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 
 vim.opt.confirm = true -- ask for confirmation instead of erroring
-
-vim.opt.undofile = true -- persistent undo
-vim.opt.backup = true -- automatically save a backup file
-vim.opt.backupdir:remove('.') -- keep backups out of the current directory
-
--- Set transparent background
--- function ColorMyPencils(color)
---     color = color or 'nord'
---     vim.cmd.colorscheme(color)
---
---     vim.api.nvim_set_hl(0, 'Normal', { bg = 'none', })
---     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none', })
--- end
---
--- ColorMyPencils()
