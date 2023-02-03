@@ -10,6 +10,10 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 
+vim.opt.foldmethod = 'manual'
+-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
@@ -37,7 +41,9 @@ vim.opt.fillchars:append({ eob = ' ' }) -- remove the ~ from end of buffer
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
+vim.opt.scrolloff = 0
+vim.opt.sidescrolloff = 0
+
+vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.confirm = true -- ask for confirmation instead of erroring

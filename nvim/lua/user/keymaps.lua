@@ -11,11 +11,6 @@ vim.keymap.set('n', '<A-\\>', ':tabclose<CR>', {})
 vim.keymap.set('n', '<A-<>', '<C-w>10<', {})
 vim.keymap.set('n', '<A->>', '<C-w>10>', {})
 
--- Neotree file explorer
-vim.keymap.set('n', '|', ':Neotree toggle current reveal_force_cwd<CR>')
-vim.keymap.set('n', '\\', ':Neotree reveal<CR>')
--- vim.keymap.set('n', '<leader>f', ':Neotree float<CR>')
-
 -- Reselect visual selection after indenting
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
