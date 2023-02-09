@@ -8,8 +8,8 @@ vim.keymap.set('n', '<A-]>', ':tabn<CR>', {})
 vim.keymap.set('n', '<A-\\>', ':tabclose<CR>', {})
 
 -- Window resizing
-vim.keymap.set('n', '<A-<>', '<C-w>10<', {})
-vim.keymap.set('n', '<A->>', '<C-w>10>', {})
+vim.keymap.set('n', '<A-<>', '<C-w>5<', {})
+vim.keymap.set('n', '<A->>', '<C-w>5>', {})
 
 -- Reselect visual selection after indenting
 vim.keymap.set('v', '<', '<gv')

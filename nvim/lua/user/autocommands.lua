@@ -20,6 +20,11 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     command = [[%s/\s\+$//e]],
 })
 
+-- -- Ensure treesitter folding works on file open
+-- vim.api.nvim_create_autocmd({ 'BufAdd', 'BufEnter', 'BufNew', 'BufNewFile', 'BufWinEnter' }, {
+--     pattern = { '*' },
+--     command = [[set foldmethod=expr | set foldexpr=nvim_treesitter#foldexpr()]],
+-- })
 -- vim.cmd([[
 -- augroup packer_user_config
 -- autocmd!

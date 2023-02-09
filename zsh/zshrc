@@ -8,6 +8,8 @@ export PROMPT="%B%{$fg[blue]%}%~%b %{$reset_color%}"
 
 export EDITOR=nvim
 
+export CC=gcc-12
+
 path=(
 	/bin
 	/usr/bin

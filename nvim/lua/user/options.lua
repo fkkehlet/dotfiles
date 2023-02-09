@@ -6,13 +6,17 @@ vim.opt.softtabstop = 4
 
 vim.opt.smartindent = true
 
+-- Allows Neorg to conceal markup delimiters for bold, italic, etc.
+vim.opt.conceallevel = 2
+
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
+vim.opt.textwidth = 80
 
-vim.opt.foldmethod = 'manual'
--- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false

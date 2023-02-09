@@ -154,6 +154,7 @@ return require'packer'.startup(function(use)
         requires = 'nvim-lua/plenary.nvim',
     }
     use 'nvim-orgmode/orgmode'
+    use 'jghauser/follow-md-links.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim (put this at the end after all plugins)
     if packer_bootstrap then
