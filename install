@@ -2,6 +2,13 @@
 
 DOTFILES=$(cd $(dirname "${BASH_COURSE[0]}") && pwd)
 
+sudo dnf install bat
+sudo dnf install neovim
+sudo dnf install kitty
+sudo dnf install g++
+sudo dnf install npm
+sudo dnf install ripgrep
+
 rm -rf $HOME/.config/kitty
 ln -s $DOTFILES/kitty $HOME/.config/kitty
 
@@ -18,8 +25,8 @@ mkdir -p $HOME/.local/bin
 rm -rf $HOME/.local/bin/t
 ln -s $DOTFILES/scripts/t $HOME/.local/bin/t
 
-rm -rf $HOME/.config/nvim/init.lua
-ln -s $DOTFILES/nvim/init.lua $HOME/.config/nvim/init.lua
+# rm -rf $HOME/.config/nvim/init.lua
+# ln -s $DOTFILES/nvim/init.lua $HOME/.config/nvim/init.lua
 
 # mkdir -p $HOME/.config/nvim/lua/user
 # rm -rf $HOME/.config/nvim/lua/user/plugins.lua
@@ -32,10 +39,10 @@ ln -s $DOTFILES/nvim $HOME/.config/nvim
 # ln -s $DOTFILES/nvim/lua/user/keymaps.lua $HOME/.config/nvim/lua/user/keymaps.lua
 
 
-rm -rf $HOME/.config/helix
-ln -s $DOTFILES/helix $HOME/.config/helix
+# rm -rf $HOME/.config/helix
+# ln -s $DOTFILES/helix $HOME/.config/helix
 
-# Language servers
+# # Language servers
 if ! command -v typescript-language-server &> /dev/null; then
   npm install --global typescript typescript-language-server
 fi
