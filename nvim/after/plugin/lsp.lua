@@ -10,7 +10,7 @@ lsp.ensure_installed({
     'intelephense',
     -- 'phpcs',
     -- 'php-cs-fixer',
-    'sumneko_lua',
+    -- 'sumneko_lua',
     'tsserver',
 })
 

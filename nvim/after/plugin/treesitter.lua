@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'css', 'html', 'javascript', 'lua', 'org', 'norg', 'php', 'python', 'rust', 'typescript', 'help', 'vim' },
+    ensure_installed = { 'astro', 'c', 'css', 'html', 'javascript', 'lua', 'org', 'norg', 'php', 'python', 'rust', 'typescript', 'help', 'vim' },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,

@@ -11,16 +11,20 @@ sudo dnf install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Neovim dependencies
-sudo dnf install kitty
-sudo dnf install bat
-sudo dnf install neovim
-sudo dnf install g++
-sudo dnf install npm
-sudo dnf install ripgrep
+sudo dnf install kitty bat neovim g++ npm ripgrep
 
-# General utilities
+# Command line utils
 sudo dnf install htop
 sudo dnf copr enable atim/lazygit
 sudo dnf install lazygit
 sudo dnf copr enable pennbauman/ports
 sudo dnf install lf
+
+# Apps
+flatpak install com.spotify.Client
+flatpak install flathub com.obsproject.Studio
+
+# Touchpad gestures with libinput-gestures
+sudo gpasswd -a $USER input
+sudo dnf install wmctrl xdotool
+libinput-gestures-setup autostart start

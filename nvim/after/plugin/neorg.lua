@@ -3,18 +3,18 @@ require'neorg'.setup {
         ['core.defaults'] = {},
         ['core.export'] = {},
         ['core.integrations.nvim-cmp'] = {},
-        ['core.norg.completion'] = {
+        ['core.completion'] = {
             config = {
                 engine = 'nvim-cmp',
             },
         },
-        ['core.norg.concealer'] = {
+        ['core.concealer'] = {
             config = {
                 markup_preset = 'dimmed', -- 'conceal' or 'dimmed'
             },
 
         },
-        ['core.norg.esupports.indent'] = {
+        ['core.esupports.indent'] = {
             config = {
                 indents = {
                     heading1 = { indent = 0 },
@@ -26,7 +26,7 @@ require'neorg'.setup {
                 },
             },
         },
-        ['core.norg.esupports.metagen'] = {
+        ['core.esupports.metagen'] = {
             config = {
                 type = 'none',
             },

@@ -20,6 +20,12 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     command = [[%s/\s\+$//e]],
 })
 
+-- Turn off hard wrap for select filetypes
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+    pattern = { '*.html' },
+    command = [[set textwidth=0]],
+})
+
 -- -- Ensure treesitter folding works on file open
 -- vim.api.nvim_create_autocmd({ 'BufAdd', 'BufEnter', 'BufNew', 'BufNewFile', 'BufWinEnter' }, {
 --     pattern = { '*' },
