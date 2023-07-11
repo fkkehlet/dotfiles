@@ -159,6 +159,10 @@ return require'packer'.startup(function(use)
     -- Astro support
     use 'wuelnerdotexe/vim-astro'
 
+    -- Prettier
+    use 'sbdchd/neoformat'
+    vim.cmd([[ let g:neoformat_try_node_exe = 1 ]]) -- Use the locally installed version of Prettier
+
     -- Automatically set up your configuration after cloning packer.nvim (put this at the end after all plugins)
     if packer_bootstrap then
         require'packer'.sync()

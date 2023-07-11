@@ -20,6 +20,12 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     command = [[%s/\s\+$//e]],
 })
 
+-- Format with Prettier on save
+-- vim.api.nvim_create_autocmd({ 'BufWritePre', 'InsertLeave' }, {
+--     pattern = { '*.astro', '*.html', '*.md' },
+--     command = [[Neoformat]],
+-- })
+
 -- Turn off hard wrap for select filetypes
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     pattern = { '*.html' },
