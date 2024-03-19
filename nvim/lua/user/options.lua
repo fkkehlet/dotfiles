@@ -12,7 +12,7 @@ vim.opt.conceallevel = 2
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
-vim.opt.textwidth = 80
+vim.opt.textwidth = 0
 
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'

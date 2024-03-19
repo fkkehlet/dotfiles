@@ -4,6 +4,7 @@ DOTFILES=$(cd $(dirname "${BASH_COURSE[0]}") && pwd)
 
 sudo dnf install bat g++ kitty neovim npm ripgrep zsh
 
+
 rm -rf $HOME/.config/libinput-gestures.conf
 ln -s $DOTFILES/libinput-gestures.conf $HOME/.config/libinput-gestures.conf
 
