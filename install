@@ -2,15 +2,21 @@
 
 DOTFILES=$(cd $(dirname "${BASH_COURSE[0]}") && pwd)
 
+# General tools
 sudo dnf install bat g++ neovim npm ripgrep zsh kitty-terminfo
+
+# Postgres
 sudo dnf install postqresql postgresql-server postgresql-contrib postgresql-docs postgresql-test postgresql-jdbc postgresql-odbc
+
+# Elixir
+sudo dnf install inotify tools
 
 sudo postgresql-setup --initdb --unit postgresql
 systemctl enable postgresql
 systemctl start postgresql
 
 
-
+# Symlinking configs
 rm -rf $HOME/.config/libinput-gestures.conf
 ln -s $DOTFILES/libinput-gestures.conf $HOME/.config/libinput-gestures.conf
 
@@ -30,11 +36,12 @@ mkdir -p $HOME/.local/bin
 rm -rf $HOME/.local/bin/t
 ln -s $DOTFILES/scripts/t $HOME/.local/bin/t
 
-# Install Kitty
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+rm -rf $HOME/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config/nvim
 
-# Create symbolic links to add kitty and kitten to PATH (assuming ~/.local/bin is in
+# Install and symlink Kitty (assuming ~/.local/bin is in
 # your system-wide PATH)
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
 # Place the kitty.desktop file somewhere it can be found by the OS
 cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
@@ -51,8 +58,6 @@ sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/sha
 # rm -rf $HOME/.config/nvim/lua/user/plugins.lua
 # rm -rf $HOME/.config/nvim/lua/user/options.lua
 # rm -rf $HOME/.config/nvim/lua/user/keymaps.lua
-rm -rf $HOME/.config/nvim
-ln -s $DOTFILES/nvim $HOME/.config/nvim
 # ln -s $DOTFILES/nvim/lua/user/plugins.lua $HOME/.config/nvim/lua/user/plugins.lua
 # ln -s $DOTFILES/nvim/lua/user/options.lua $HOME/.config/nvim/lua/user/options.lua
 # ln -s $DOTFILES/nvim/lua/user/keymaps.lua $HOME/.config/nvim/lua/user/keymaps.lua
