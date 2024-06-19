@@ -26,7 +26,7 @@ return require'packer'.startup(function(use)
     use 'nelstrom/vim-visual-star-search' -- Enable * searching with visually selected text
     use 'theprimeagen/harpoon' -- Harpoon files!
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', -- tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'}, },
     }
     use { -- Fuzzy finder algorithm for Terescope which requires local dependencies to be built. Only load if `make` is available

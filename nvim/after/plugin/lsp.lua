@@ -8,13 +8,36 @@ lsp.ensure_installed({
     'eslint',
     -- 'html-lsp',
     'intelephense',
+    'html',
+    'emmet_ls',
     -- 'phpcs',
     -- 'php-cs-fixer',
     -- 'sumneko_lua',
+    'elixirls',
     'tsserver',
+    'tailwindcss',
 })
 
 -- require'lspconfig'.intelephense.setup({})
+require'lspconfig'.html.setup{
+  filetypes = { 'html', 'eex', 'heex' }
+}
+
+require'lspconfig'.emmet_ls.setup{
+  filetypes = { 'html', 'eex', 'heex' }
+}
+
+require'lspconfig'.tailwindcss.setup({
+  init_options = {
+    userLanguages = {
+      elixir = "html-eex",
+      eelixir = "html-eex",
+      heex = "html-eex",
+    },
+  },
+})
+
+
 
 lsp.set_preferences({
     sign_icons = {}
