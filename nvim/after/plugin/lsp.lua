@@ -2,6 +2,8 @@
 -- Learn to configure LSP servers, see :help lsp-zero-api-showcase
 local lsp = require 'lsp-zero'
 lsp.preset('recommended')
+local lspconfig = require'lspconfig'
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 lsp.ensure_installed({
     -- 'css-lsp',
@@ -19,25 +21,35 @@ lsp.ensure_installed({
 })
 
 -- require'lspconfig'.intelephense.setup({})
-require'lspconfig'.html.setup{
-  filetypes = { 'html', 'eex', 'heex' }
+lspconfig.html.setup{
+  filetypes = { 'html', 'elixir', 'eelixir', 'heex' }
 }
 
-require'lspconfig'.emmet_ls.setup{
-  filetypes = { 'html', 'eex', 'heex' }
-}
+lspconfig.emmet_ls.setup({
+  capabilities = capabilities,
+  filetypes = { 'html', 'css', 'elixir', 'eelixir', 'heex' },
+})
 
-require'lspconfig'.tailwindcss.setup({
+lspconfig.tailwindcss.setup({
+  capabilities = capabilities,
+  filetypes = { 'html', 'elixir', 'eelixir', 'heex' },
   init_options = {
     userLanguages = {
-      elixir = "html-eex",
-      eelixir = "html-eex",
-      heex = "html-eex",
+      elixir = 'html-eex',
+      eelixir = 'html-eex',
+      heex = 'html-eex',
+    },
+  },
+  settings = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          'class[:]\\s*"([^"]*)"',
+        },
+      },
     },
   },
 })
-
-
 
 lsp.set_preferences({
     sign_icons = {}
