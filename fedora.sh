@@ -20,6 +20,17 @@ sudo dnf install lazygit
 sudo dnf copr enable pennbauman/ports
 sudo dnf install lf
 
+
+# ENABLE X11 https://fedoraproject.org/wiki/KDE/X11_Unsupported
+# System Settings → Colors & Themes → Login Screen (SDDM):
+sudo dnf install plasma-workspace-x11
+
+
+# dnf copr enable monkeybizness/kcm_webcam_settings
+# dnf install kcm_webcam_settings
+
+
+
 # Apps
 flatpak install com.spotify.Client
 flatpak install flathub com.obsproject.Studio

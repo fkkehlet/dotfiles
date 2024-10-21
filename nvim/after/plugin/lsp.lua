@@ -15,8 +15,11 @@ lsp.ensure_installed({
     -- 'phpcs',
     -- 'php-cs-fixer',
     -- 'sumneko_lua',
+    -- 'lua-language-server',
     'elixirls',
-    'tsserver',
+    -- 'astro-language-server',
+    -- 'svelte-language-server',
+    -- 'typescript-language-server',
     'tailwindcss',
 })
 
@@ -49,6 +52,7 @@ lspconfig.tailwindcss.setup({
       },
     },
   },
+  root_dir = lspconfig.util.root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git', 'mix.exs'),
 })
 
 lsp.set_preferences({

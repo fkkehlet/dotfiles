@@ -100,6 +100,9 @@ return require'packer'.startup(function(use)
         }
     }
 
+    -- Elixir!
+    use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
+
     -- Misc
     -- use 'tpope/vim-unimpaired' -- Handy bracket mappings, like [b and ]b
     -- use 'tpope/vim-eunuch' -- Useful commands like :Rename and :SudoWrite
@@ -148,12 +151,15 @@ return require'packer'.startup(function(use)
             vim.cmd('Rooter')
         end,
     }
-    use { -- Note taking and organization
-        'nvim-neorg/neorg', tag = "*",
-        run = ':Neorg sync-parsers',
-        requires = 'nvim-lua/plenary.nvim',
-    }
-    use 'nvim-orgmode/orgmode'
+
+    -- Note taking and organization
+    -- use {
+    --     'nvim-neorg/neorg', tag = "*",
+    --     run = ':Neorg sync-parsers',
+    --     requires = 'nvim-lua/plenary.nvim',
+    -- }
+    -- use 'nvim-orgmode/orgmode'
+
     use 'jghauser/follow-md-links.nvim'
 
     -- Astro support

@@ -16,9 +16,17 @@ systemctl enable postgresql
 systemctl start postgresql
 
 
+# Virtualbox
+sudo dnf install make time perl gcc dkms kernel-devel kernel-headers
+/sbin/vboxconfig
+
+
 # Symlinking configs
 rm -rf $HOME/.config/libinput-gestures.conf
 ln -s $DOTFILES/libinput-gestures.conf $HOME/.config/libinput-gestures.conf
+
+rm -rf $HOME/.config/espanso
+ln -s $DOTFILES/espanso $HOME/.config/espanso
 
 rm -rf $HOME/.config/kitty
 ln -s $DOTFILES/kitty $HOME/.config/kitty
