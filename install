@@ -44,8 +44,14 @@ mkdir -p $HOME/.local/bin
 rm -rf $HOME/.local/bin/t
 ln -s $DOTFILES/scripts/t $HOME/.local/bin/t
 
+# Neovim config
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
+
+# Firefox CSS
+# rm -rf $HOME/.mozilla/firefox/jn2oxr6g.default-release/chrome
+# mkdir $HOME/.mozilla/firefox/jn2oxr6g.default-release/chrome
+# ln -s $DOTFILES/firefox/userChrome.css $HOME/.mozilla/firefox/jn2oxr6g.default-release/chrome/userChrome.css
 
 # Install and symlink Kitty (assuming ~/.local/bin is in
 # your system-wide PATH)

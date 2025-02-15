@@ -1,0 +1,8 @@
+/* COPY TO $HOME/.mozilla/firefox/jn2oxr6g.default-release/chrome/userChrome.css */
+
+/* Make sure to enable toolkit.legacyUserProfileCustomizations.stylesheets in about:config. */
+
+/* hides the native tabs */
+#TabsToolbar {
+  visibility: collapse;
+}
