@@ -1,9 +1,16 @@
 theme = "mytheme"
 
 [editor]
+# cursorline = true
+color-modes = true
 line-number = "relative"
 mouse = true
-bufferline = "multiple"
+bufferline = "always"
+end-of-line-diagnostics = "hint"
+scrolloff = 0
+
+[editor.inline-diagnostics]
+# cursor-line = "error"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -22,6 +29,7 @@ skip-levels = 1
 display-messages = true
 
 [editor.statusline]
+
 # mode.normal = "NORMAL"
 # mode.insert = "INSERT"
 # mode.select = "SELECT"
@@ -31,6 +39,10 @@ space = "none"
 tab = "all"
 newline = "none"
 
+
+[keys.normal.L]
+t = "@|stag<ret>sxxx<ret>c"
+
 [keys.normal]
 ret = "goto_word"
 A-y = [
@@ -39,9 +51,21 @@ A-y = [
   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
+
+# Allows selection of multiple files
+  # ':sh rm -f /tmp/files2open',
+  # ':set mouse false',
+  # ':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/files2open',
+  # ':redraw',
+  # ':set mouse true',
+  # ':open /tmp/files2open',
+  # 'select_all',
+  # 'split_selection_on_newline',
+  # 'goto_file',
+  # ':buffer-close! /tmp/files2open',
 ]
 A-g = [
-    ":write-all",
+    # ":write-all",
     ":new",
     ":insert-output lazygit",
     ":set mouse false", # First disable mouse to hint helix into activating it
@@ -50,7 +74,7 @@ A-g = [
     ":redraw",
     ":reload-all"
 ]
-# esc = ["collapse_selection", "keep_primary_selection"]
+esc = ["collapse_selection", "keep_primary_selection"]
 # ";" = "command_mode"
 X = "extend_line_above"
 "}" = "goto_next_paragraph"
@@ -87,7 +111,7 @@ A-y = [
   ':redraw',
 ]
 A-g = [
-    ":write-all",
+    # ":write-all",
     ":new",
     ":insert-output lazygit",
     ":set mouse false", # First disable mouse to hint helix into activating it
@@ -101,6 +125,7 @@ A-g = [
 X = "extend_line_above"
 "}" = "goto_next_paragraph"
 "{" = "goto_prev_paragraph"
+
 # Line swaps
 A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]

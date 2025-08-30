@@ -46,9 +46,17 @@ ln -s $DOTFILES/lf $HOME/.config/lf
 rm -rf $HOME/.tmux.conf
 ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
+# scripts
 mkdir -p $HOME/.local/bin
+
 rm -rf $HOME/.local/bin/t
 ln -s $DOTFILES/scripts/t $HOME/.local/bin/t
+chmod +x ~/.local/bin/t
+
+rm -rf $HOME/.local/bin/stag
+ln -s $DOTFILES/scripts/stag $HOME/.local/bin/stag
+chmod +x ~/.local/bin/stag
+
 
 # Neovim config
 rm -rf $HOME/.config/nvim

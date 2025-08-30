@@ -38,3 +38,12 @@ export GOPATH=$HOME/go
 
 # Erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Used in helix for HTML binding
+
+# stag() {
+#   echo -n "<xxx>"
+#   cat
+#   echo -n "</xxx>"
+# }
+
