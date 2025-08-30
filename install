@@ -21,6 +21,12 @@ sudo dnf install make time perl gcc dkms kernel-devel kernel-headers
 /sbin/vboxconfig
 
 
+# Nix
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+nix profile add nixpkgs#nerd-fonts.fira-code nixpkgs#nerd-fonts.symbols-only
+
+
 # Symlinking configs
 rm -rf $HOME/.config/libinput-gestures.conf
 ln -s $DOTFILES/libinput-gestures.conf $HOME/.config/libinput-gestures.conf
@@ -76,8 +82,23 @@ sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/sha
 # ln -s $DOTFILES/nvim/lua/user/options.lua $HOME/.config/nvim/lua/user/options.lua
 # ln -s $DOTFILES/nvim/lua/user/keymaps.lua $HOME/.config/nvim/lua/user/keymaps.lua
 
-# rm -rf $HOME/.config/helix
-# ln -s $DOTFILES/helix $HOME/.config/helix
+brew install helix
+
+rm -rf $HOME/.config/helix
+ln -s $DOTFILES/helix $HOME/.config/helix
+
+
+brew install helix
+brew install yazi
+brew install zellij
+
+git clone https://github.com/luccahuguet/yazelix ~/.config/yazelix
+
+# rm -rf $HOME/.config/yazelix
+# ln -s $DOTFILES/yazelix $HOME/.config/yazelix
+
+# Automatically configure the yazelix shell 
+nu ~/.config/yazelix/nushell/scripts/core/start_yazelix.nu
 
 # # Language servers
 # if ! command -v typescript-language-server &> /dev/null; then

@@ -1,0 +1,5 @@
+# inherits = "monokai_pro_spectrum"
+inherits = "tokyonight"
+"ui.cursor.primary.normal" = {bg = "red"}
+"ui.cursor.primary.select" = {bg = "red"}
+"ui.cursor.primary.insert" = {bg = "red"}

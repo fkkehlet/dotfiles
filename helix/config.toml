@@ -1,4 +1,4 @@
-theme = "nord"
+theme = "mytheme"
 
 [editor]
 line-number = "relative"
@@ -13,19 +13,18 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
-
 [editor.indent-guides]
 render = true
 character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
-
+    
 [editor.lsp]
 display-messages = true
 
 [editor.statusline]
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+# mode.normal = "NORMAL"
+# mode.insert = "INSERT"
+# mode.select = "SELECT"
 
 [editor.whitespace.render]
 space = "none"
@@ -33,10 +32,35 @@ tab = "all"
 newline = "none"
 
 [keys.normal]
-        esc = ["collapse_selection", "keep_primary_selection"]
-";" = "command_mode"
+ret = "goto_word"
+A-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+A-g = [
+    ":write-all",
+    ":new",
+    ":insert-output lazygit",
+    ":set mouse false", # First disable mouse to hint helix into activating it
+    ":set mouse true",
+    ":buffer-close!",
+    ":redraw",
+    ":reload-all"
+]
+# esc = ["collapse_selection", "keep_primary_selection"]
+# ";" = "command_mode"
 X = "extend_line_above"
-C-z = "increment"
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
+
+
+# Line swaps
+A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
 C-n = ["move_line_down", "scroll_down"]
 C-p = ["move_line_up", "scroll_up"]
 C-d = ["align_view_top", "half_page_down", "align_view_center", "goto_line_start"]
@@ -50,3 +74,33 @@ q = ":buffer-close"
 # remap A-( and A-) for rotate_selection_contents and A-, for remove primary selection
 # remap A-` (make uppercase)
 # A-; (flip macos_option_as_alt yesselection)
+#
+#
+
+
+[keys.select]
+A-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+A-g = [
+    ":write-all",
+    ":new",
+    ":insert-output lazygit",
+    ":set mouse false", # First disable mouse to hint helix into activating it
+    ":set mouse true",
+    ":buffer-close!",
+    ":redraw",
+    ":reload-all"
+]
+# esc = ["collapse_selection", "keep_primary_selection"]
+# ";" = "command_mode"
+X = "extend_line_above"
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
+# Line swaps
+A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
