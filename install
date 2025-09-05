@@ -112,3 +112,9 @@ nu ~/.config/yazelix/nushell/scripts/core/start_yazelix.nu
 # if ! command -v typescript-language-server &> /dev/null; then
 #   sudo npm install --global typescript typescript-language-server
 # fi
+
+# LSPs
+# First, install rust 
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo install lsp-ai
+

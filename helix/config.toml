@@ -40,8 +40,12 @@ tab = "all"
 newline = "none"
 
 
-[keys.normal.L]
+[keys.normal.m]
 t = "@|stag<ret>sxxx<ret>c"
+
+[keys.normal.g]
+h = "extend_to_line_start"
+l = "extend_to_line_end"
 
 [keys.normal]
 ret = "goto_word"
