@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/frederik/.cache/nvim/packer_hererocks/2.1.1720049189/share/lua/5.1/?.lua;/home/frederik/.cache/nvim/packer_hererocks/2.1.1720049189/share/lua/5.1/?/init.lua;/home/frederik/.cache/nvim/packer_hererocks/2.1.1720049189/lib/luarocks/rocks-5.1/?.lua;/home/frederik/.cache/nvim/packer_hererocks/2.1.1720049189/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/frederik/.cache/nvim/packer_hererocks/2.1.1720049189/lib/lua/5.1/?.so"
+local package_path_str = "/home/frederik/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?.lua;/home/frederik/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?/init.lua;/home/frederik/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?.lua;/home/frederik/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/frederik/.cache/nvim/packer_hererocks/2.1.1753364724/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -116,11 +116,6 @@ _G.packer_plugins = {
     path = "/home/frederik/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["elixir-tools.nvim"] = {
-    loaded = true,
-    path = "/home/frederik/.local/share/nvim/site/pack/packer/start/elixir-tools.nvim",
-    url = "https://github.com/elixir-tools/elixir-tools.nvim"
-  },
   ["follow-md-links.nvim"] = {
     loaded = true,
     path = "/home/frederik/.local/share/nvim/site/pack/packer/start/follow-md-links.nvim",
@@ -155,11 +150,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/frederik/.local/share/nvim/site/pack/packer/start/leap.nvim",
     url = "https://github.com/ggandor/leap.nvim"
-  },
-  ["lsp-zero.nvim"] = {
-    loaded = true,
-    path = "/home/frederik/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -203,6 +193,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
+    config = { "\27LJ\2\nO\0\1\5\2\3\0\b-\1\0\0008\1\0\0019\1\0\0015\3\1\0-\4\1\0=\4\2\3B\1\2\1K\0\1\0\0À\1À\17capabilities\1\0\1\17capabilities\0\nsetupŽ\1\0\0\4\2\6\0\n-\0\0\0009\0\0\0009\0\1\0005\2\2\0-\3\1\0=\3\3\0025\3\4\0=\3\5\2B\0\2\1K\0\1\0\0À\1À\14filetypes\1\5\0\0\thtml\velixir\feelixir\theex\17capabilities\1\0\2\17capabilities\0\14filetypes\0\nsetup\thtml–\1\0\0\4\2\6\0\n-\0\0\0009\0\0\0009\0\1\0005\2\2\0-\3\1\0=\3\3\0025\3\4\0=\3\5\2B\0\2\1K\0\1\0\0À\1À\14filetypes\1\6\0\0\thtml\bcss\velixir\feelixir\theex\17capabilities\1\0\2\17capabilities\0\14filetypes\0\nsetup\remmet_lsü\4\0\0\r\2\29\0#-\0\0\0009\0\0\0009\0\1\0005\2\2\0-\3\1\0=\3\3\0025\3\4\0=\3\5\0025\3\a\0005\4\6\0=\4\b\3=\3\t\0025\3\15\0005\4\r\0005\5\v\0005\6\n\0=\6\f\5=\5\14\4=\4\16\3=\3\17\2-\3\0\0009\3\18\0039\3\19\3'\5\20\0'\6\21\0'\a\22\0'\b\23\0'\t\24\0'\n\25\0'\v\26\0'\f\27\0B\3\t\2=\3\28\2B\0\2\1K\0\1\0\0À\1À\rroot_dir\fmix.exs\t.git\17node_modules\17package.json\22postcss.config.ts\22postcss.config.js\23tailwind.config.ts\23tailwind.config.js\17root_pattern\tutil\rsettings\16tailwindCSS\1\0\1\16tailwindCSS\0\17experimental\1\0\1\17experimental\0\15classRegex\1\0\1\15classRegex\0\1\2\0\0\25class[:]\\s*\"([^\"]*)\"\17init_options\18userLanguages\1\0\1\18userLanguages\0\1\0\3\theex\rhtml-eex\feelixir\rhtml-eex\velixir\rhtml-eex\14filetypes\1\5\0\0\thtml\velixir\feelixir\theex\17capabilities\1\0\5\17capabilities\0\14filetypes\0\rroot_dir\0\rsettings\0\17init_options\0\nsetup\16tailwindcssC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequireà\a\1\0\f\0006\0W6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0026\1\0\0'\3\4\0B\1\2\0029\1\5\1B\1\1\0026\2\6\0009\2\a\0029\2\b\2'\4\t\0005\5\17\0005\6\15\0005\a\r\0005\b\v\0005\t\n\0=\t\f\b=\b\14\a=\a\16\6=\6\18\5B\2\3\0016\2\6\0009\2\19\0029\2\b\0025\4\20\0B\2\2\0016\2\0\0'\4\21\0B\2\2\0029\2\2\0025\4\23\0005\5\22\0=\5\24\0045\5\27\0003\6\25\0>\6\1\0053\6\26\0=\6\28\0053\6\29\0=\6\30\0053\6\31\0=\6 \5=\5!\4B\2\2\0016\2\0\0'\4\"\0B\2\2\0029\3\2\0025\5&\0005\6$\0003\a#\0=\a%\6=\6'\0059\6(\0029\6)\0069\6*\0065\b,\0009\t(\0029\t+\tB\t\1\2=\t-\b9\t(\0029\t.\t5\v/\0B\t\2\2=\t0\bB\6\2\2=\6(\0054\6\5\0005\a1\0>\a\1\0065\a2\0>\a\2\0065\a3\0>\a\3\0065\a4\0>\a\4\6=\0065\5B\3\2\0012\0\0€K\0\1\0\fsources\1\0\1\tname\tpath\1\0\1\tname\vbuffer\1\0\1\tname\fluasnip\1\0\1\tname\rnvim_lsp\t<CR>\1\0\1\vselect\2\fconfirm\14<C-Space>\1\0\2\t<CR>\0\14<C-Space>\0\rcomplete\vinsert\vpreset\fmapping\fsnippet\1\0\3\fsources\0\fmapping\0\fsnippet\0\vexpand\1\0\1\vexpand\0\0\bcmp\rhandlers\16tailwindcss\0\remmet_ls\0\thtml\1\0\3\remmet_ls\0\thtml\0\16tailwindcss\0\0\0\21ensure_installed\1\0\2\rhandlers\0\21ensure_installed\0\1\6\0\0\vlua_ls\relixirls\thtml\remmet_ls\16tailwindcss\20mason-lspconfig\1\0\4\nsigns\2\18severity_sort\2\21update_in_insert\1\14underline\2\15diagnostic\rsettings\1\0\1\rsettings\0\bLua\1\0\1\bLua\0\16diagnostics\1\0\1\16diagnostics\0\fglobals\1\0\1\fglobals\0\1\2\0\0\bvim\vlua_ls\vconfig\blsp\bvim\25default_capabilities\17cmp_nvim_lsp\14lspconfig\nsetup\nmason\frequire\0" },
     loaded = true,
     path = "/home/frederik/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -229,11 +220,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/frederik/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  playground = {
-    loaded = true,
-    path = "/home/frederik/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -328,30 +314,34 @@ time([[Setup for vim-rooter]], false)
 time([[packadd for vim-rooter]], true)
 vim.cmd [[packadd vim-rooter]]
 time([[packadd for vim-rooter]], false)
--- Config for: bufdelete.nvim
-time([[Config for bufdelete.nvim]], true)
-try_loadstring("\27LJ\2\nO\0\0\5\0\6\0\b6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0B\0\4\1K\0\1\0\17:bdelete<CR>\14<Leader>q\6n\bset\vkeymap\bvim\0", "config", "bufdelete.nvim")
-time([[Config for bufdelete.nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
--- Config for: tokyonight.nvim
-time([[Config for tokyonight.nvim]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0!colorscheme tokyonight-night\bcmd\bvim\0", "config", "tokyonight.nvim")
-time([[Config for tokyonight.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: vim-pasta
-time([[Config for vim-pasta]], true)
-try_loadstring("\27LJ\2\nG\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rfugitive\29pasta_disabled_filetypes\6g\bvim\0", "config", "vim-pasta")
-time([[Config for vim-pasta]], false)
 -- Config for: vim-rooter
 time([[Config for vim-rooter]], true)
 try_loadstring("\27LJ\2\n*\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\vRooter\bcmd\bvim\0", "config", "vim-rooter")
 time([[Config for vim-rooter]], false)
+-- Config for: vim-pasta
+time([[Config for vim-pasta]], true)
+try_loadstring("\27LJ\2\nG\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rfugitive\29pasta_disabled_filetypes\6g\bvim\0", "config", "vim-pasta")
+time([[Config for vim-pasta]], false)
+-- Config for: tokyonight.nvim
+time([[Config for tokyonight.nvim]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0!colorscheme tokyonight-night\bcmd\bvim\0", "config", "tokyonight.nvim")
+time([[Config for tokyonight.nvim]], false)
+-- Config for: bufdelete.nvim
+time([[Config for bufdelete.nvim]], true)
+try_loadstring("\27LJ\2\nO\0\0\5\0\6\0\b6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0B\0\4\1K\0\1\0\17:bdelete<CR>\14<Leader>q\6n\bset\vkeymap\bvim\0", "config", "bufdelete.nvim")
+time([[Config for bufdelete.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\nO\0\1\5\2\3\0\b-\1\0\0008\1\0\0019\1\0\0015\3\1\0-\4\1\0=\4\2\3B\1\2\1K\0\1\0\0À\1À\17capabilities\1\0\1\17capabilities\0\nsetupŽ\1\0\0\4\2\6\0\n-\0\0\0009\0\0\0009\0\1\0005\2\2\0-\3\1\0=\3\3\0025\3\4\0=\3\5\2B\0\2\1K\0\1\0\0À\1À\14filetypes\1\5\0\0\thtml\velixir\feelixir\theex\17capabilities\1\0\2\17capabilities\0\14filetypes\0\nsetup\thtml–\1\0\0\4\2\6\0\n-\0\0\0009\0\0\0009\0\1\0005\2\2\0-\3\1\0=\3\3\0025\3\4\0=\3\5\2B\0\2\1K\0\1\0\0À\1À\14filetypes\1\6\0\0\thtml\bcss\velixir\feelixir\theex\17capabilities\1\0\2\17capabilities\0\14filetypes\0\nsetup\remmet_lsü\4\0\0\r\2\29\0#-\0\0\0009\0\0\0009\0\1\0005\2\2\0-\3\1\0=\3\3\0025\3\4\0=\3\5\0025\3\a\0005\4\6\0=\4\b\3=\3\t\0025\3\15\0005\4\r\0005\5\v\0005\6\n\0=\6\f\5=\5\14\4=\4\16\3=\3\17\2-\3\0\0009\3\18\0039\3\19\3'\5\20\0'\6\21\0'\a\22\0'\b\23\0'\t\24\0'\n\25\0'\v\26\0'\f\27\0B\3\t\2=\3\28\2B\0\2\1K\0\1\0\0À\1À\rroot_dir\fmix.exs\t.git\17node_modules\17package.json\22postcss.config.ts\22postcss.config.js\23tailwind.config.ts\23tailwind.config.js\17root_pattern\tutil\rsettings\16tailwindCSS\1\0\1\16tailwindCSS\0\17experimental\1\0\1\17experimental\0\15classRegex\1\0\1\15classRegex\0\1\2\0\0\25class[:]\\s*\"([^\"]*)\"\17init_options\18userLanguages\1\0\1\18userLanguages\0\1\0\3\theex\rhtml-eex\feelixir\rhtml-eex\velixir\rhtml-eex\14filetypes\1\5\0\0\thtml\velixir\feelixir\theex\17capabilities\1\0\5\17capabilities\0\14filetypes\0\rroot_dir\0\rsettings\0\17init_options\0\nsetup\16tailwindcssC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequireà\a\1\0\f\0006\0W6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0026\1\0\0'\3\4\0B\1\2\0029\1\5\1B\1\1\0026\2\6\0009\2\a\0029\2\b\2'\4\t\0005\5\17\0005\6\15\0005\a\r\0005\b\v\0005\t\n\0=\t\f\b=\b\14\a=\a\16\6=\6\18\5B\2\3\0016\2\6\0009\2\19\0029\2\b\0025\4\20\0B\2\2\0016\2\0\0'\4\21\0B\2\2\0029\2\2\0025\4\23\0005\5\22\0=\5\24\0045\5\27\0003\6\25\0>\6\1\0053\6\26\0=\6\28\0053\6\29\0=\6\30\0053\6\31\0=\6 \5=\5!\4B\2\2\0016\2\0\0'\4\"\0B\2\2\0029\3\2\0025\5&\0005\6$\0003\a#\0=\a%\6=\6'\0059\6(\0029\6)\0069\6*\0065\b,\0009\t(\0029\t+\tB\t\1\2=\t-\b9\t(\0029\t.\t5\v/\0B\t\2\2=\t0\bB\6\2\2=\6(\0054\6\5\0005\a1\0>\a\1\0065\a2\0>\a\2\0065\a3\0>\a\3\0065\a4\0>\a\4\6=\0065\5B\3\2\0012\0\0€K\0\1\0\fsources\1\0\1\tname\tpath\1\0\1\tname\vbuffer\1\0\1\tname\fluasnip\1\0\1\tname\rnvim_lsp\t<CR>\1\0\1\vselect\2\fconfirm\14<C-Space>\1\0\2\t<CR>\0\14<C-Space>\0\rcomplete\vinsert\vpreset\fmapping\fsnippet\1\0\3\fsources\0\fmapping\0\fsnippet\0\vexpand\1\0\1\vexpand\0\0\bcmp\rhandlers\16tailwindcss\0\remmet_ls\0\thtml\1\0\3\remmet_ls\0\thtml\0\16tailwindcss\0\0\0\21ensure_installed\1\0\2\rhandlers\0\21ensure_installed\0\1\6\0\0\vlua_ls\relixirls\thtml\remmet_ls\16tailwindcss\20mason-lspconfig\1\0\4\nsigns\2\18severity_sort\2\21update_in_insert\1\14underline\2\15diagnostic\rsettings\1\0\1\rsettings\0\bLua\1\0\1\bLua\0\16diagnostics\1\0\1\16diagnostics\0\fglobals\1\0\1\fglobals\0\1\2\0\0\bvim\vlua_ls\vconfig\blsp\bvim\25default_capabilities\17cmp_nvim_lsp\14lspconfig\nsetup\nmason\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Config for: splitjoin.vim
 time([[Config for splitjoin.vim]], true)
 try_loadstring("\27LJ\2\n¨\1\0\0\2\0\5\0\r6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\0\0009\0\1\0)\1\1\0=\1\4\0K\0\1\0$splitjoin_php_method_chain_full\29splitjoin_trailing_comma2splitjoin_html_attributes_bracket_on_new_line\6g\bvim\0", "config", "splitjoin.vim")

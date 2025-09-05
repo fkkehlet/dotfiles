@@ -62,7 +62,6 @@ return require'packer'.startup(function(use)
         'nvim-treesitter/nvim-treesitter-textobjects',
         after = 'nvim-treesitter',
     }
-    use 'nvim-treesitter/playground'
 
     -- Git
     use 'tpope/vim-fugitive'
@@ -81,27 +80,148 @@ return require'packer'.startup(function(use)
 
     -- LSP
     use {
-        'VonHeikemen/lsp-zero.nvim',
+        'neovim/nvim-lspconfig',
         requires = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
             {'williamboman/mason.nvim'},
             {'williamboman/mason-lspconfig.nvim'},
-            -- Autocompletion
+            -- Keep your completion setup
             {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
             {'saadparwaiz1/cmp_luasnip'},
             {'hrsh7th/cmp-nvim-lsp'},
             {'hrsh7th/cmp-nvim-lua'},
-            -- Snippets
+            -- Keep snippets
             {'L3MON4D3/LuaSnip'},
             {'rafamadriz/friendly-snippets'},
-        }
+        },
+        config = function()
+            -- Set up mason.nvim
+            require('mason').setup()
+
+            -- Set up lspconfig and mason-lspconfig
+            local lspconfig = require('lspconfig')
+            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+
+
+            vim.lsp.config("lua_ls", {
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" }
+                        }
+                    }
+                }
+            })
+
+            -- NEW: Configure the diagnostic UI
+            vim.diagnostic.config({
+                virtual_text = true,
+                -- virtual_lines = true,
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = true,
+            })
+
+            -- local on_attach = function(client, bufnr)
+            --     local opts = { buffer = bufnr, noremap = true, silent = true }
+            --     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+            --     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+            --     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+            --     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+            --     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+            --     vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
+            --     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+            --     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+            -- end
+
+            require('mason-lspconfig').setup({
+                ensure_installed = { 'lua_ls', 'elixirls', 'html', 'emmet_ls', 'tailwindcss' },
+                handlers = {
+                    function(server_name)
+                        lspconfig[server_name].setup({
+                            capabilities = capabilities,
+                            -- on_attach = on_attach,
+                        })
+                    end,
+                    -- Custom configurations for specific servers
+                    ['html'] = function()
+                        lspconfig.html.setup({
+                            capabilities = capabilities,
+                            -- on_attach = on_attach,
+                            filetypes = { 'html', 'elixir', 'eelixir', 'heex' }
+                        })
+                    end,
+                    ['emmet_ls'] = function()
+                        lspconfig.emmet_ls.setup({
+                            capabilities = capabilities,
+                            -- on_attach = on_attach,
+                            filetypes = { 'html', 'css', 'elixir', 'eelixir', 'heex' },
+                        })
+                    end,
+                    ['tailwindcss'] = function()
+                        lspconfig.tailwindcss.setup({
+                            capabilities = capabilities,
+                            -- on_attach = on_attach,
+                            filetypes = { 'html', 'elixir', 'eelixir', 'heex' },
+                            init_options = {
+                                userLanguages = {
+                                    elixir = 'html-eex',
+                                    eelixir = 'html-eex',
+                                    heex = 'html-eex',
+                                },
+                            },
+                            settings = {
+                                tailwindCSS = {
+                                    experimental = {
+                                        classRegex = {
+                                            'class[:]\\s*"([^"]*)"',
+                                        },
+                                    },
+                                },
+                            },
+                            root_dir = lspconfig.util.root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git', 'mix.exs'),
+                        })
+                    end,
+                }
+            })
+
+            -- Set up nvim-cmp (autocompletion)
+            local cmp = require('cmp')
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        require('luasnip').lsp_expand(args.body)
+                    end,
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                }),
+                sources = {
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip' },
+                    { name = 'buffer' },
+                    { name = 'path' },
+                },
+            })
+        end,
     }
 
+
+
+
+
+
+
+
+
+
+
     -- Elixir!
-    use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
+    -- use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
 
     -- Misc
     -- use 'tpope/vim-unimpaired' -- Handy bracket mappings, like [b and ]b

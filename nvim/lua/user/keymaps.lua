@@ -2,6 +2,41 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+
+-- LSP
+
+-- Open float diagnostics
+vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+
+
+-- Here's the description of the keymaps recommended in the getting started page:
+--
+-- * `K`: Displays hover information about the symbol under the cursor in a floating window. See [:help vim.lsp.buf.hover()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.hover()).
+vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+-- * `gd`: Jumps to the definition of the symbol under the cursor. See [:help vim.lsp.buf.definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.definition()).
+vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+-- * `gD`: Jumps to the declaration of the symbol under the cursor. Some servers don't implement this feature. See [:help vim.lsp.buf.declaration()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.declaration()).
+vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+-- * `gi`: Lists all the implementations for the symbol under the cursor in the quickfix window. See [:help vim.lsp.buf.implementation()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.implementation()).
+vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+-- * `go`: Jumps to the definition of the type of the symbol under the cursor. See [:help vim.lsp.buf.type_definition()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.type_definition()).
+vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+-- * `gr`: Lists all the references to the symbol under the cursor in the quickfix window. See [:help vim.lsp.buf.references()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.references()).
+vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+-- * `gs`: Displays signature information about the symbol under the cursor in a floating window. See [:help vim.lsp.buf.signature_help()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.signature_help()). If a mapping already exists for this key this function is not bound.
+vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+-- * `<F2>`: Renames all references to the symbol under the cursor. See [:help vim.lsp.buf.rename()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.rename()).
+--
+-- * `<F3>`: Format code in current buffer. See [:help vim.lsp.buf.format()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.format()).
+--
+-- * `<F4>`: Selects a code action available at the current cursor position. See [:help vim.lsp.buf.code_action()](https://neovim.io/doc/user/lsp.html#vim.lsp.buf.code_action()).
+
+
+
+
+
+
+
 -- Navigate tabs
 vim.keymap.set('n', '<A-[>', ':tabp<CR>', {})
 vim.keymap.set('n', '<A-]>', ':tabn<CR>', {})

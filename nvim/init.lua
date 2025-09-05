@@ -1,4 +1,5 @@
 require 'user/packer'
+-- require 'user/lazy'
 require 'user/autocommands'
 require 'user/options'
 require 'user/keymaps'
