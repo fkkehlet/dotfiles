@@ -152,14 +152,6 @@ return require'packer'.startup(function(use)
         end,
     }
 
-    -- Note taking and organization
-    -- use {
-    --     'nvim-neorg/neorg', tag = "*",
-    --     run = ':Neorg sync-parsers',
-    --     requires = 'nvim-lua/plenary.nvim',
-    -- }
-    -- use 'nvim-orgmode/orgmode'
-
     use 'jghauser/follow-md-links.nvim'
 
     -- Astro support
