@@ -1,6 +1,6 @@
 -- Space is the leader
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- vim.g.mapleader = ' '
+-- vim.g.maplocalleader = ' '
 
 
 -- LSP
@@ -65,7 +65,7 @@ vim.keymap.set('n', '<leader>o', ':!open %<CR><CR>')
 vim.keymap.set('n', '<leader>X', ':!chmod +x %<CR>')
 
 -- Write the file only if it's been updated
-vim.keymap.set("n", "<leader>w", ":up<CR>")
+vim.keymap.set("n", "<leader>w", ":update<CR>")
 
 -- Quickly clear search highlighting
 vim.keymap.set('n', '<leader>n', ':nohlsearch<CR>')
