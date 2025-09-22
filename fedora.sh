@@ -13,6 +13,9 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # Neovim dependencies
 sudo dnf install kitty bat neovim g++ npm ripgrep
 
+# Clipboard functionality
+sudo dnf install xclip
+
 # Command line utils
 sudo dnf install htop
 sudo dnf copr enable atim/lazygit
