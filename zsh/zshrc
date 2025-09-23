@@ -1,5 +1,4 @@
 alias v="nvim"
-alias h="hx"
 
 autoload -U colors && colors
 
@@ -11,6 +10,7 @@ export EDITOR=nvim
 export CC=gcc
 
 path=(
+	/home/linuxbrew/.linuxbrew/opt/postgresql@16/bin
 	/bin
 	/usr/bin
 	/usr/local/bin
@@ -39,12 +39,3 @@ export GOPATH=$HOME/go
 
 # Erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
-
-# Used in helix for HTML binding
-
-# stag() {
-#   echo -n "<xxx>"
-#   cat
-#   echo -n "</xxx>"
-# }
-
