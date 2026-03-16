@@ -4,8 +4,16 @@ set -euo pipefail
 
 # ── HOST (Bazzite) ────────────────────────────────────────────────────────────
 # Install core tools system-wide (requires reboot to apply) - MANUAL INSTALL
-# sudo rpm-ostree install keyd kitty neovim zsh
+# sudo rpm-ostree install keyd kitty neovim powertop zsh
 # echo "↪️  Host packages queued. Reboot after this script to apply."
+# Set keyboard layout to us-intl, then meta+z, meta+x, meta+Z, meta+X for
+# moving between virtual desktops and moving screens between them
+#
+# Install nvm:
+# wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+#
+# Install all-ways-egpu:
+# cd ~; curl -qLs  https://github.com/ewagner12/all-ways-egpu/releases/latest/download/all-ways-egpu.zip  -o all-ways-egpu.zip; unzip all-ways-egpu.zip; cd all-ways-egpu-main; chmod +x install.sh; sudo ./install.sh; cd ../; rm -rf all-ways-egpu.zip all-ways-egpu-main
 
 # Change default shell to zsh
 chsh -s /bin/zsh
