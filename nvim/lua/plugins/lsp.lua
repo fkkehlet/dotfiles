@@ -14,10 +14,13 @@ return {
         config = function()
             require('mason').setup()
 
-            local lspconfig = require('lspconfig')
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-            lspconfig.lua_ls.setup({
+            vim.lsp.config('*', {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config('lua_ls', {
                 settings = {
                     Lua = {
                         diagnostics = {
@@ -25,6 +28,35 @@ return {
                         }
                     }
                 }
+            })
+
+            vim.lsp.config('html', {
+                filetypes = { 'html', 'elixir', 'eelixir', 'heex' },
+            })
+
+            vim.lsp.config('emmet_ls', {
+                filetypes = { 'html', 'css', 'elixir', 'eelixir', 'heex' },
+            })
+
+            vim.lsp.config('tailwindcss', {
+                filetypes = { 'html', 'elixir', 'eelixir', 'heex' },
+                init_options = {
+                    rLanguages = {
+                        elixir = 'html-eex',
+                        eelixir = 'html-eex',
+                        heex = 'html-eex',
+                    },
+                },
+                settings = {
+                    tailwindCSS = {
+                        experimental = {
+                            classRegex = {
+                                'class[:]\\s*"([^"]*)"',
+                            },
+                        },
+                    },
+                },
+                root_markers = { 'tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git', 'mix.exs' },
             })
 
             vim.diagnostic.config({
@@ -37,49 +69,9 @@ return {
 
             require('mason-lspconfig').setup({
                 ensure_installed = { 'lua_ls', 'elixirls', 'html', 'emmet_ls', 'tailwindcss' },
-                handlers = {
-                    function(server_name)
-                        lspconfig[server_name].setup({
-                            capabilities = capabilities,
-                        })
-                    end,
-                    ['html'] = function()
-                        lspconfig.html.setup({
-                            capabilities = capabilities,
-                            filetypes = { 'html', 'elixir', 'eelixir', 'heex' }
-                        })
-                    end,
-                    ['emmet_ls'] = function()
-                        lspconfig.emmet_ls.setup({
-                            capabilities = capabilities,
-                            filetypes = { 'html', 'css', 'elixir', 'eelixir', 'heex' },
-                        })
-                    end,
-                    ['tailwindcss'] = function()
-                        lspconfig.tailwindcss.setup({
-                            capabilities = capabilities,
-                            filetypes = { 'html', 'elixir', 'eelixir', 'heex' },
-                            init_options = {
-                                rLanguages = {
-                                    elixir = 'html-eex',
-                                    eelixir = 'html-eex',
-                                    heex = 'html-eex',
-                                },
-                            },
-                            settings = {
-                                tailwindCSS = {
-                                    experimental = {
-                                        classRegex = {
-                                            'class[:]\\s*"([^"]*)"',
-                                        },
-                                    },
-                                },
-                            },
-                            root_dir = lspconfig.util.root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git', 'mix.exs'),
-                        })
-                    end,
-                }
             })
+
+            vim.lsp.enable({ 'lua_ls', 'elixirls', 'html', 'emmet_ls', 'tailwindcss' })
         end,
     },
     {
